@@ -1,3 +1,8 @@
-@if (loading$ |async) {
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+@if (loading$ | async) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+}
+@if (error$ | async) {
+  <p>{{ error$ | async }}</p>
+} @else {
+  {{ (products$ | async) |json }}
 }
