@@ -15,8 +15,8 @@ export class ProductEffect {
         return this.service.getproductsList().pipe(
           map((products) => {
             return procuctactions.procuctSuccess({products});
-          }),catchError((err)=>{
-            return of(procuctactions.procuctFailure(err))
+          }),catchError((error)=>{
+            return of(procuctactions.procuctFailure({error}))
           })
         );
       }),

@@ -3,7 +3,7 @@ import { Product } from './products.model';
 import * as ProductActions from './product.action';
 export interface ProductState {
   products: Product[];
-  error: string | null;
+  error: string| null;
   loading: boolean;
 }
 

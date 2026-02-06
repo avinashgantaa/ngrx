@@ -1,21 +1,14 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as productselectors from './store/products/product.selector';
-import * as productactions from './store/products/product.action';
-import { Observable } from 'rxjs';
-import { Product } from './store/products/products.model';
+import { Products } from "./components/products/products";
+import { Cart } from "./components/cart/cart";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
+  imports: [Products, Cart],
 })
-export class App implements OnInit {
+export class App {
   protected readonly title = signal('products');
-  store = inject(Store);
-  products$!: Observable<Product[]>;
-  ngOnInit(): void {
-    this.store.dispatch(productactions.procuct());
-    this.products$.subscribe((data) => console.log(data));
-  }
+
 }
